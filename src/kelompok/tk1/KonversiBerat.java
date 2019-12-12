@@ -1,27 +1,24 @@
 package kelompok.tk1;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class KonversiBerat {
 
     public static void main(String[] args) {
-        InputStreamReader isr = new InputStreamReader(System.in);
-        BufferedReader reader = new BufferedReader(isr);
+        Scanner reader = new Scanner(System.in);
 
-        try {
-            System.out.println("KONVERSI BERAT");
-            System.out.print("Masukkan jumlah kilogram yang akan dikonversi : ");
-            int input = Integer.parseInt(reader.readLine());
+        System.out.println("KONVERSI BERAT");
+        System.out.print("Masukkan jumlah kilogram yang akan dikonversi : ");
+        double input = reader.nextDouble();
 
-            int pon = input * 2;
-            int ons = pon * 5;
-            int gram = ons * 100;
+        double pon = input * 2;
+        double ons = pon * 5;
+        double gram = ons * 100;
 
-            System.out.print(input + " kg sama dengan = " + pon + " pon atau " + ons + " ons atau " + gram + " gram");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        DecimalFormat df = new DecimalFormat("#.###");
+
+        System.out.print(df.format(input) + " kg sama dengan = " + df.format(pon) + " pon atau " +
+                df.format(ons) + " ons atau " + df.format(gram) + " gram");
     }
 }
